@@ -188,6 +188,21 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 
 @media(max-width:1024px){.types-grid{grid-template-columns:repeat(3,1fr)}.seg-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:1fr 1fr}.steps-grid::before{display:none}.awards-inner{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}.gallery-editorial{grid-template-columns:repeat(6,1fr);grid-template-rows:240px 240px}.ge.a{grid-column:span 3;grid-row:span 2}.ge.b{grid-column:span 3}.ge.c{grid-column:span 2}.ge.d{grid-column:span 1}.ge.e{grid-column:span 4}.ge.f{grid-column:span 2}.ge.g{display:none}}
 @media(max-width:768px){nav{padding:1rem 1.5rem}.nav-links{display:none}.hero{grid-template-columns:1fr}.hero-collage{height:55vw;grid-template-rows:1fr 1fr}.hero-left{padding:2.5rem 1.5rem}.legacy{padding:1.2rem 1.5rem;gap:1.2rem}.legacy-sep{display:none}.boxtypes,.segments,.how,.video-section,.gallery,.awards,.about,.testimonials,.final-cta{padding:3.5rem 1.5rem}.types-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.gallery-editorial{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:200px}.ge.a,.ge.b,.ge.c,.ge.d,.ge.e,.ge.f,.ge.g{grid-column:span 1;grid-row:span 1}.ge.a{grid-row:span 2}.testi-grid{grid-template-columns:1fr}footer{flex-direction:column;padding:2.5rem 1.5rem}.footer-links{align-items:flex-start}.footer-award{text-align:left}}
+
+/* --- Image colour correction & studio polish --- */
+.hero-collage img,.ci img,.type-card img,.seg-card img,.ge img,.award-img img,.about-img img{
+  filter:contrast(1.06) saturate(1.12) brightness(1.025);
+  transition:filter .45s ease,transform .6s ease;
+}
+.ci:hover img,.type-card:hover img,.seg-card:hover img,.ge:hover img,.about-img:hover img{
+  filter:contrast(1.11) saturate(1.18) brightness(1.04);
+}
+/* soft studio backdrop so product shots sit richer instead of on flat white */
+.type-card,.seg-card,.ge,.ci,.award-img{
+  background:radial-gradient(125% 125% at 50% 0%,#fbfaf7 0%,#efece4 100%);
+}
+/* gentle premium shadow lift on the product cards */
+.type-card,.seg-card{box-shadow:0 8px 24px rgba(28,28,26,.08)}
 </style>
 </head>
 <body>
