@@ -25,6 +25,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links a:hover{color:var(--ink)}
 .nav-wa{display:flex;align-items:center;gap:7px;background:var(--green);color:#fff;padding:.6rem 1.3rem;border-radius:50px;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(37,211,102,.3);transition:transform .2s}
 .nav-wa:hover{transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:8px;margin-left:6px}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+nav.open .nav-toggle span:nth-child(2){opacity:0}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:90px}
 .hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;background:var(--cream)}
@@ -187,7 +192,7 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 .wa-float svg{width:28px;height:28px;fill:white}
 
 @media(max-width:1024px){.types-grid{grid-template-columns:repeat(3,1fr)}.seg-grid{grid-template-columns:repeat(2,1fr)}.steps-grid{grid-template-columns:1fr 1fr}.steps-grid::before{display:none}.awards-inner{grid-template-columns:1fr}.about-inner{grid-template-columns:1fr}.gallery-editorial{grid-template-columns:repeat(6,1fr);grid-template-rows:240px 240px}.ge.b,.ge.c,.ge.d,.ge.e,.ge.f,.ge.g{grid-column:span 2;grid-row:span 1}}
-@media(max-width:768px){nav{padding:.7rem 1.5rem}.nav-logo img{height:38px}.seg-desc{display:none}.seg-overlay{background:linear-gradient(to top,rgba(28,28,26,.55) 0%,rgba(28,28,26,.03) 40%,transparent 62%);padding:1rem}.seg-name{font-size:13px;margin-bottom:0}.nav-links{display:none}.hero{grid-template-columns:1fr}.hero-collage{height:55vw;grid-template-rows:1fr 1fr}.hero-left{padding:2.5rem 1.5rem}.legacy{padding:1.2rem 1.5rem;gap:1.2rem}.legacy-sep{display:none}.boxtypes,.segments,.how,.video-section,.gallery,.awards,.about,.testimonials,.final-cta{padding:3.5rem 1.5rem}.types-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.gallery-editorial{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:200px}.ge.a,.ge.b,.ge.c,.ge.d,.ge.e,.ge.f,.ge.g{grid-column:span 1;grid-row:span 1}.ge.a{grid-row:span 2}.testi-grid{grid-template-columns:1fr}footer{flex-direction:column;padding:2.5rem 1.5rem}.footer-links{align-items:flex-start}.footer-award{text-align:left}}
+@media(max-width:768px){nav{padding:.7rem 1.5rem}.nav-logo img{height:38px}.seg-desc{display:none}.seg-overlay{background:linear-gradient(to top,rgba(28,28,26,.55) 0%,rgba(28,28,26,.03) 40%,transparent 62%);padding:1rem}.seg-name{font-size:13px;margin-bottom:0}.nav-toggle{display:flex}.nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(250,250,248,.99);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0;max-height:0;overflow:hidden;transition:max-height .35s ease}nav.open .nav-links{max-height:60vh}.nav-links li{width:100%}.nav-links a{display:block;padding:1rem 1.5rem;font-size:15px;color:var(--ink);border-top:1px solid var(--border)}.hero{grid-template-columns:1fr}.hero-collage{height:55vw;grid-template-rows:1fr 1fr}.hero-left{padding:2.5rem 1.5rem}.legacy{padding:1.2rem 1.5rem;gap:1.2rem}.legacy-sep{display:none}.boxtypes,.segments,.how,.video-section,.gallery,.awards,.about,.testimonials,.final-cta{padding:3.5rem 1.5rem}.types-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:1fr}.gallery-editorial{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:200px}.ge.a,.ge.b,.ge.c,.ge.d,.ge.e,.ge.f,.ge.g{grid-column:span 1;grid-row:span 1}.ge.a{grid-row:span 2}.testi-grid{grid-template-columns:1fr}footer{flex-direction:column;padding:2.5rem 1.5rem}.footer-links{align-items:flex-start}.footer-award{text-align:left}}
 
 /* --- Image colour correction & studio polish --- */
 .hero-collage img,.ci img,.type-card img,.seg-card img,.ge img,.award-img img,.about-img img{
@@ -212,13 +217,14 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 
 <nav>
   <div class="nav-logo"><img src="images/boxsmith-by-cdc-printers.png" alt="Boxsmith by CDC Printers"></div>
-  <ul class="nav-links">
+  <ul class="nav-links" onclick="document.querySelector('nav').classList.remove('open')">
     <li><a href="#boxtypes">Box Types</a></li>
     <li><a href="#segments">Our Work</a></li>
     <li><a href="#how">Process</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="https://wa.me/919230400800?text=Hi%20Boxsmith!%20I%27d%20like%20to%20discuss%20custom%20packaging%20for%20my%20brand." class="nav-wa" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.847L.057 23.882l6.194-1.624A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.889 9.889 0 01-5.032-1.375l-.361-.214-3.736.98.996-3.645-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.421 0 9.894 4.474 9.894 9.894 0 5.421-4.473 9.894-9.894 9.894z"/></svg> WhatsApp Us</a>
+  <button class="nav-toggle" aria-label="Open menu" onclick="document.querySelector('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
