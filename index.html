@@ -214,12 +214,12 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 
 /* BRANDS MARQUEE */
 .brands{background:#fff;padding:3.5rem 0 1rem;overflow:hidden;scroll-margin-top:80px}
-.marquee{overflow:hidden;width:100%;margin-top:1.8rem;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.marquee{overflow:hidden;width:100%;margin-top:1.8rem;padding:16px 0;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
 .marquee-track{display:flex;align-items:center;gap:4.5rem;width:max-content;animation:brandscroll 50s linear infinite}
 @media(hover:hover){.marquee:hover .marquee-track{animation-play-state:paused}}
 .marquee-track.paused{animation-play-state:paused}
-.marquee-track img{height:54px;width:auto;max-width:170px;object-fit:contain;flex-shrink:0;filter:grayscale(1);opacity:.6;transition:filter .3s,opacity .3s}
-.marquee-track img:hover{filter:grayscale(0);opacity:1}
+.marquee-track img{height:54px;width:auto;max-width:170px;object-fit:contain;flex-shrink:0;opacity:1;cursor:pointer;transition:transform .35s ease}
+.marquee-track img.big{transform:scale(1.4)}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:768px){.marquee-track{gap:3rem}.marquee-track img{height:42px;max-width:130px}}
 </style>
@@ -351,6 +351,12 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 </section>
 
 <!-- HOW IT WORKS -->
+<!-- BRANDS -->
+<section class="brands" id="brands">
+  <p class="sl" style="text-align:center">Trusted by leading brands</p>
+  <div class="marquee"><div class="marquee-track"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"></div></div>
+</section>
+
 <section class="how" id="how">
   <div class="how-inner">
     <p class="sl">The Process</p>
@@ -463,11 +469,6 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 </section>
 
 <!-- TESTIMONIALS -->
-<!-- BRANDS -->
-<section class="brands" id="brands">
-  <p class="sl" style="text-align:center">Trusted by leading brands</p>
-  <div class="marquee"><div class="marquee-track"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"></div></div>
-</section>
 
 <section class="testimonials">
   <p class="sl">What Founders Say</p>
@@ -514,19 +515,23 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 
 <script>
 (function(){
-  var marquee=document.querySelector('.brands .marquee');
   var track=document.querySelector('.brands .marquee-track');
-  if(!marquee||!track) return;
-  var timer;
-  marquee.addEventListener('click',function(){
-    if(track.classList.contains('paused')){
-      track.classList.remove('paused');
-      clearTimeout(timer);
-    }else{
-      track.classList.add('paused');
-      clearTimeout(timer);
-      timer=setTimeout(function(){track.classList.remove('paused');},8000);
-    }
+  if(!track) return;
+  var timer, current=null;
+  function reset(){
+    track.classList.remove('paused');
+    if(current){current.classList.remove('big'); current=null;}
+    clearTimeout(timer);
+  }
+  track.addEventListener('click',function(e){
+    var img=e.target.closest('img');
+    if(!img) return;
+    if(img===current){ reset(); return; }
+    if(current) current.classList.remove('big');
+    img.classList.add('big'); current=img;
+    track.classList.add('paused');
+    clearTimeout(timer);
+    timer=setTimeout(reset,8000);
   });
 })();
 </script>
