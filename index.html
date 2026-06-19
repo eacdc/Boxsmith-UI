@@ -211,6 +211,16 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 /* transparent cut-out boxes: float on cream with one consistent soft shadow */
 .type-card.cutout,.seg-card.cutout{background:#F4E8D9}
 .type-card.cutout img,.seg-card.cutout img{object-fit:contain;filter:none}
+
+/* BRANDS MARQUEE */
+.brands{background:#fff;padding:3.5rem 0 4rem;overflow:hidden}
+.marquee{overflow:hidden;width:100%;margin-top:1.8rem;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:4.5rem;width:max-content;animation:brandscroll 50s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track img{height:40px;width:auto;max-width:150px;object-fit:contain;flex-shrink:0;filter:grayscale(1);opacity:.6;transition:filter .3s,opacity .3s}
+.marquee-track img:hover{filter:grayscale(0);opacity:1}
+@keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:768px){.marquee-track{gap:3rem}.marquee-track img{height:32px;max-width:120px}}
 </style>
 </head>
 <body>
@@ -451,6 +461,12 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 </section>
 
 <!-- TESTIMONIALS -->
+<!-- BRANDS -->
+<section class="brands">
+  <p class="sl" style="text-align:center">Trusted by leading brands</p>
+  <div class="marquee"><div class="marquee-track"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/11.png" alt="Brand logo" loading="lazy"><img src="brand-logos/12.png" alt="Brand logo" loading="lazy"><img src="brand-logos/18.png" alt="Brand logo" loading="lazy"><img src="brand-logos/2.png" alt="Brand logo" loading="lazy"><img src="brand-logos/275e7a57ce4239225b69a2a6dc509c94.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/448f20188103965.Y3JvcCwxMjAzLDk0MSwxMTgyLDE3Mg.jpg" alt="Brand logo" loading="lazy"><img src="brand-logos/7.png" alt="Brand logo" loading="lazy"><img src="brand-logos/9.png" alt="Brand logo" loading="lazy"><img src="brand-logos/chocolate.png.webp" alt="Brand logo" loading="lazy"><img src="brand-logos/images.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images.png" alt="Brand logo" loading="lazy"><img src="brand-logos/images1.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images2.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images3.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/images5.png" alt="Brand logo" loading="lazy"><img src="brand-logos/logo.png" alt="Brand logo" loading="lazy"><img src="brand-logos/orimiiskincare_logo.jpeg" alt="Brand logo" loading="lazy"><img src="brand-logos/twinings-of-london-2-logo-png-transparent.png" alt="Brand logo" loading="lazy"><img src="brand-logos/unnamed.jpg" alt="Brand logo" loading="lazy"></div></div>
+</section>
+
 <section class="testimonials">
   <p class="sl">What Founders Say</p>
   <h2>Real brands. <em>Real results.</em></h2>
