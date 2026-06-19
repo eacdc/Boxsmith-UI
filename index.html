@@ -214,14 +214,14 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 
 /* BRANDS MARQUEE */
 .brands{background:#fff;padding:3.5rem 0 1rem;overflow:hidden;scroll-margin-top:80px}
-.marquee{overflow:hidden;width:100%;margin-top:1.8rem;padding:16px 0;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
-.marquee-track{display:flex;align-items:center;gap:4.5rem;width:max-content;animation:brandscroll 50s linear infinite}
+.marquee{overflow:hidden;width:100%;margin-top:1.8rem;padding:28px 0;-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:4.5rem;width:max-content;animation:brandscroll 40s linear infinite}
 @media(hover:hover){.marquee:hover .marquee-track{animation-play-state:paused}}
 .marquee-track.paused{animation-play-state:paused}
-.marquee-track img{height:54px;width:auto;max-width:170px;object-fit:contain;flex-shrink:0;opacity:1;cursor:pointer;transition:transform .35s ease}
+.marquee-track img{height:108px;width:auto;max-width:340px;object-fit:contain;flex-shrink:0;opacity:1;cursor:pointer;transition:transform .35s ease}
 .marquee-track img.big{transform:scale(1.4)}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:768px){.marquee-track{gap:3rem}.marquee-track img{height:42px;max-width:130px}}
+@media(max-width:768px){.marquee-track{gap:3rem}.marquee-track img{height:84px;max-width:260px}}
 </style>
 </head>
 <body>
