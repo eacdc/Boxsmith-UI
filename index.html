@@ -517,6 +517,20 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 (function(){
   var track=document.querySelector('.brands .marquee-track');
   if(!track) return;
+
+  // Constant pixels-per-second speed, computed from the real strip width,
+  // so the scroll looks identical on every device regardless of width/screen.
+  function setSpeed(){
+    var oneCopy=track.scrollWidth/2;       // strip is duplicated, so half = one set
+    if(!oneCopy) return;
+    var pxPerSec=window.innerWidth<768?55:95;
+    track.style.animationDuration=(oneCopy/pxPerSec).toFixed(1)+'s';
+  }
+  window.addEventListener('load',setSpeed);
+  window.addEventListener('resize',setSpeed);
+  setSpeed(); setTimeout(setSpeed,600); setTimeout(setSpeed,1800);
+
+  // Click a logo -> enlarge + pause; click again or after 8s -> reset
   var timer, current=null;
   function reset(){
     track.classList.remove('paused');
