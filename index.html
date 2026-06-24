@@ -523,7 +523,7 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
   function setSpeed(){
     var oneCopy=track.scrollWidth/2;       // strip is duplicated, so half = one set
     if(!oneCopy) return;
-    var pxPerSec=window.innerWidth<768?71.5:123.5;
+    var pxPerSec=window.innerWidth<768?99:171;
     track.style.animationDuration=(oneCopy/pxPerSec).toFixed(1)+'s';
   }
   window.addEventListener('load',setSpeed);
