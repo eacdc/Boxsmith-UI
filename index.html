@@ -223,6 +223,19 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 .marquee-track img.big{transform:scale(1.4)}
 @keyframes brandscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(max-width:768px){.marquee-track img{height:84px;max-width:260px;margin-right:3rem}}
+
+/* WORK LIGHTBOX (category carousel) */
+.lightbox{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;background:rgba(20,18,16,.93);padding:2rem}
+.lightbox.open{display:flex}
+.lb-img{max-width:88vw;max-height:78vh;width:auto;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);user-select:none}
+.lb-close{position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:2.6rem;line-height:1;cursor:pointer;opacity:.85}
+.lb-close:hover{opacity:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);border:none;color:#fff;font-size:1.5rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.28)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-title{position:absolute;bottom:44px;left:0;right:0;text-align:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.25rem}
+.lb-count{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.55);font-size:12px;letter-spacing:.12em}
+@media(max-width:768px){.lb-prev,.lb-next{width:42px;height:42px;font-size:1.2rem}.lb-prev{left:8px}.lb-next{right:8px}.lb-img{max-width:92vw}}
 </style>
 </head>
 <body>
@@ -340,14 +353,14 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
     <p>From food and confectionery to electricals and personal care — if your product deserves premium packaging, we've made it before.</p>
   </div>
   <div class="seg-grid">
-    <div class="seg-card"><img src="images/lid-and-base.jpg" alt="Food"><div class="seg-overlay"><div class="seg-name">Food &amp; Beverage</div><div class="seg-desc">Gourmet boxes, meal kits, artisan food gifting</div></div></div>
-    <div class="seg-card"><img src="images/confectionery.jpg" alt="Confectionery"><div class="seg-overlay"><div class="seg-name">Confectionery</div><div class="seg-desc">Chocolate, mithai, gifting boxes, advent calendars</div></div></div>
-    <div class="seg-card"><img src="images/personal-care.jpg" alt="Personal Care"><div class="seg-overlay"><div class="seg-name">Personal Care</div><div class="seg-desc">Skincare, cosmetics, wellness, beauty gifting</div></div></div>
-    <div class="seg-card"><img src="images/games.jpg" alt="Games"><div class="seg-overlay"><div class="seg-name">Games</div><div class="seg-desc">Board games, card games, puzzle and gift boxes</div></div></div>
-    <div class="seg-card"><img src="images/electricals.jpg" alt="Electricals"><div class="seg-overlay"><div class="seg-name">Electricals</div><div class="seg-desc">Wires, cables, electronics, sample kits</div></div></div>
-    <div class="seg-card"><img src="images/tea.jpg" alt="Tea"><div class="seg-overlay"><div class="seg-name">Tea &amp; Wellness</div><div class="seg-desc">Premium tea gifting, wellness hampers</div></div></div>
-    <div class="seg-card"><img src="images/perfumes.jpg" alt="Perfumes"><div class="seg-overlay"><div class="seg-name">Perfumes</div><div class="seg-desc">Attars, fragrances, luxury scent boxes</div></div></div>
-    <div class="seg-card"><img src="images/premium-gifting.jpg" alt="Premium Gifting"><div class="seg-overlay"><div class="seg-name">Premium Gifting</div><div class="seg-desc">Luxury hampers, corporate &amp; festive gifting</div></div></div>
+    <div class="seg-card" data-cat="food"><img src="images/lid-and-base.jpg" alt="Food"><div class="seg-overlay"><div class="seg-name">Food &amp; Beverage</div><div class="seg-desc">Gourmet boxes, meal kits, artisan food gifting</div></div></div>
+    <div class="seg-card" data-cat="confectionery"><img src="images/confectionery.jpg" alt="Confectionery"><div class="seg-overlay"><div class="seg-name">Confectionery</div><div class="seg-desc">Chocolate, mithai, gifting boxes, advent calendars</div></div></div>
+    <div class="seg-card" data-cat="personal-care"><img src="images/personal-care.jpg" alt="Personal Care"><div class="seg-overlay"><div class="seg-name">Personal Care</div><div class="seg-desc">Skincare, cosmetics, wellness, beauty gifting</div></div></div>
+    <div class="seg-card" data-cat="games"><img src="images/games.jpg" alt="Games"><div class="seg-overlay"><div class="seg-name">Games</div><div class="seg-desc">Board games, card games, puzzle and gift boxes</div></div></div>
+    <div class="seg-card" data-cat="electricals"><img src="images/electricals.jpg" alt="Electricals"><div class="seg-overlay"><div class="seg-name">Electricals</div><div class="seg-desc">Wires, cables, electronics, sample kits</div></div></div>
+    <div class="seg-card" data-cat="tea"><img src="images/tea.jpg" alt="Tea"><div class="seg-overlay"><div class="seg-name">Tea &amp; Wellness</div><div class="seg-desc">Premium tea gifting, wellness hampers</div></div></div>
+    <div class="seg-card" data-cat="perfumes"><img src="images/perfumes.jpg" alt="Perfumes"><div class="seg-overlay"><div class="seg-name">Perfumes</div><div class="seg-desc">Attars, fragrances, luxury scent boxes</div></div></div>
+    <div class="seg-card" data-cat="premium-gifting"><img src="images/premium-gifting.jpg" alt="Premium Gifting"><div class="seg-overlay"><div class="seg-name">Premium Gifting</div><div class="seg-desc">Luxury hampers, corporate &amp; festive gifting</div></div></div>
   </div>
 </section>
 
@@ -541,6 +554,52 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
     clearTimeout(timer);
     timer=setTimeout(reset,8000);
   });
+})();
+</script>
+
+<!-- WORK CATEGORY LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-prev" aria-label="Previous">&#10094;</button>
+  <img class="lb-img" src="" alt="">
+  <button class="lb-next" aria-label="Next">&#10095;</button>
+  <div class="lb-title"></div>
+  <div class="lb-count"></div>
+</div>
+<script>
+(function(){
+  // image sets per category (filled in as folders get images)
+  var WORK={
+    food:['images/lid-and-base.jpg'],
+    confectionery:['images/confectionery.jpg'],
+    'personal-care':['images/personal-care.jpg'],
+    games:['images/games.jpg'],
+    electricals:['images/electricals.jpg'],
+    tea:['images/tea.jpg'],
+    perfumes:['images/perfumes.jpg'],
+    'premium-gifting':['images/premium-gifting.jpg']
+  };
+  var TITLES={food:'Food & Beverage',confectionery:'Confectionery','personal-care':'Personal Care',games:'Games',electricals:'Electricals',tea:'Tea & Wellness',perfumes:'Perfumes','premium-gifting':'Premium Gifting'};
+  var lb=document.getElementById('lightbox'); if(!lb) return;
+  var img=lb.querySelector('.lb-img'), titleEl=lb.querySelector('.lb-title'), countEl=lb.querySelector('.lb-count');
+  var prevBtn=lb.querySelector('.lb-prev'), nextBtn=lb.querySelector('.lb-next');
+  var list=[], idx=0;
+  function show(){ img.src=list[idx]; countEl.textContent=list.length>1?(idx+1)+' / '+list.length:''; var multi=list.length>1; prevBtn.style.display=nextBtn.style.display=multi?'flex':'none'; }
+  function open(c){ list=WORK[c]||[]; if(!list.length) return; idx=0; titleEl.textContent=TITLES[c]||''; show(); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  function next(){ idx=(idx+1)%list.length; show(); }
+  function prev(){ idx=(idx-1+list.length)%list.length; show(); }
+  document.querySelectorAll('.seg-card[data-cat]').forEach(function(card){
+    card.addEventListener('click',function(){ open(card.getAttribute('data-cat')); });
+  });
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  nextBtn.addEventListener('click',function(e){e.stopPropagation();next();});
+  prevBtn.addEventListener('click',function(e){e.stopPropagation();prev();});
+  lb.addEventListener('click',function(e){ if(e.target===lb) close(); });
+  document.addEventListener('keydown',function(e){ if(!lb.classList.contains('open'))return; if(e.key==='Escape')close(); else if(e.key==='ArrowRight')next(); else if(e.key==='ArrowLeft')prev(); });
+  var sx=null;
+  lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){ if(sx==null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); } sx=null; },{passive:true});
 })();
 </script>
 </body>
