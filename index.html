@@ -236,6 +236,16 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 .lb-title{position:absolute;bottom:44px;left:0;right:0;text-align:center;color:#fff;font-family:'Playfair Display',serif;font-size:1.25rem}
 .lb-count{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.55);font-size:12px;letter-spacing:.12em}
 @media(max-width:768px){.lb-prev,.lb-next{width:42px;height:42px;font-size:1.2rem}.lb-prev{left:8px}.lb-next{right:8px}.lb-img{max-width:92vw}}
+
+/* PROJECT CTA FORM */
+.cta-note{font-size:13px;color:rgba(28,28,26,.6);margin-top:.9rem}
+.cta-form{display:none;max-width:470px;margin:2rem auto 0;background:#fff;border-radius:16px;padding:1.8rem;text-align:left;box-shadow:0 24px 60px rgba(28,28,26,.2)}
+.cta-form.open{display:block}
+.cta-form .field{margin-bottom:1.05rem}
+.cta-form label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:.4rem}
+.cta-form select,.cta-form input{width:100%;padding:.7rem .8rem;border:1px solid var(--border);border-radius:9px;font:inherit;font-size:14px;background:#fff;color:var(--ink)}
+.cta-form select:focus,.cta-form input:focus{outline:none;border-color:var(--gold)}
+.cta-submit{width:100%;justify-content:center;border:none;cursor:pointer;margin-top:.3rem}
 </style>
 </head>
 <body>
@@ -479,8 +489,21 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Your next packaging decision starts with one WhatsApp message.</h2>
-  <p>No forms. No catalogues. Just a conversation with a real expert.</p>
-  <a href="https://wa.me/919830405025?text=Hi%20Boxsmith!%20I%27d%20like%20to%20discuss%20custom%20packaging%20for%20my%20brand." class="btn-ink" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:17px;height:17px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.847L.057 23.882l6.194-1.624A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.889 9.889 0 01-5.032-1.375l-.361-.214-3.736.98.996-3.645-.235-.374A9.861 9.861 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.421 0 9.894 4.474 9.894 9.894 0 5.421-4.473 9.894-9.894 9.894z"/></svg> &nbsp;Start on WhatsApp</a>
+  <p>Answer a few quick questions and we'll start your custom prototype.</p>
+  <button type="button" class="btn-ink cta-open" id="ctaOpen">Tell us a little about your project</button>
+  <div class="cta-note">takes 20 seconds.</div>
+  <form class="cta-form" id="ctaForm" novalidate>
+    <div class="field"><label>What are you packaging?</label>
+      <select name="category" required><option value="" disabled selected>Select…</option><option>Food &amp; Beverage</option><option>Confectionery</option><option>Personal care</option><option>Jewellery</option><option>Tea &amp; Wellness</option><option>Perfumes</option><option>Premium Gifting</option><option>Games &amp; Puzzles</option><option>Electricals</option><option>Other</option></select></div>
+    <div class="field"><label>How many units do you need, roughly?</label>
+      <select name="units" required><option value="" disabled selected>Select…</option><option>Under 200</option><option>200 – 500</option><option>500 – 2,000</option><option>2,000+</option><option>Not sure yet</option></select></div>
+    <div class="field"><label>What's your timeline?</label>
+      <select name="timeline" required><option value="" disabled selected>Select…</option><option>Urgent — within 2 weeks</option><option>This month</option><option>Just exploring for now</option></select></div>
+    <div class="field"><label>Your name</label><input name="name" type="text" required></div>
+    <div class="field"><label>Company name</label><input name="company" type="text" required></div>
+    <div class="field"><label>Email ID</label><input name="email" type="email" required></div>
+    <button type="submit" class="btn-ink cta-submit">Request My Custom Prototype</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
@@ -589,6 +612,22 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
   img.addEventListener('mouseleave',function(){ if(lb.classList.contains('open')) startAuto(); });
   lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   lb.addEventListener('touchend',function(e){ if(sx==null)return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ dx<0?next():prev(); startAuto(); } sx=null; },{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var openBtn=document.getElementById('ctaOpen'), form=document.getElementById('ctaForm');
+  if(!openBtn||!form) return;
+  openBtn.addEventListener('click',function(){ form.classList.add('open'); openBtn.style.display='none'; form.scrollIntoView({behavior:'smooth',block:'center'}); });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;
+    var d=new FormData(form);
+    var name=(d.get('name')||'').trim(), company=(d.get('company')||'').trim();
+    var cat=d.get('category'), units=d.get('units'), tl=d.get('timeline');
+    var msg="Hi Boxsmith! I'm "+name+" from "+company+". I'm packaging "+cat+", need approx "+units+" units, timeline: "+tl+". I'd like to discuss a custom prototype.";
+    window.open('https://wa.me/919830405025?text='+encodeURIComponent(msg),'_blank');
+  });
 })();
 </script>
 </body>
