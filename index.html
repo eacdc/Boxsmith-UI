@@ -501,7 +501,7 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
       <select name="timeline" required><option value="" disabled selected>Select…</option><option>Urgent — within 2 weeks</option><option>This month</option><option>Just exploring for now</option></select></div>
     <div class="field"><label>Your name</label><input name="name" type="text" required></div>
     <div class="field"><label>Company name</label><input name="company" type="text" required></div>
-    <div class="field"><label>Email ID</label><input name="email" type="email" required></div>
+    <div class="field"><label>Email ID</label><input name="email" type="email"></div>
     <button type="submit" class="btn-ink cta-submit">Request My Custom Prototype</button>
   </form>
 </section>
@@ -627,6 +627,7 @@ footer{background:var(--ink);color:var(--cream);padding:3rem 3.5rem;display:flex
     var cat=d.get('category'), units=d.get('units'), tl=d.get('timeline');
     var msg="Hi Boxsmith! I'm "+name+" from "+company+". I'm packaging "+cat+", need approx "+units+" units, timeline: "+tl+". I'd like to discuss a custom prototype.";
     window.open('https://wa.me/919830405025?text='+encodeURIComponent(msg),'_blank');
+    form.reset(); form.classList.remove('open'); openBtn.style.display='';
   });
 })();
 </script>
